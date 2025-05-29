@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mansuri Asim</title>
+    <title>Asim Mansuri</title>
+    <link rel="icon" type="image/png" href="Images/A.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -19,6 +20,14 @@
             color: #3B82F6;
         }
 
+        .mobile-nav-link i {
+            transition: transform 0.2s ease;
+        }
+
+        .mobile-nav-link:active i {
+            transform: scale(0.9);
+        }
+
         @media (max-width: 768px) {
             .mobile-navigation {
                 position: fixed;
@@ -26,15 +35,12 @@
                 left: 0;
                 right: 0;
                 z-index: 50;
+                padding-bottom: env(safe-area-inset-bottom);
+                background: rgba(17, 25, 40, 0.95);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(59, 130, 246, 0.2);
             }
-        }
-
-        .blog-card {
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
         }
 
         /* Navbar Animation Effects */
@@ -67,6 +73,15 @@
         .nav-link.active {
             color: white;
         }
+
+        /* Blog Card Hover Effects */
+        .blog-card {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 
@@ -77,21 +92,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center">
-                        <span class="text-xl font-bold"><img
-                                src="Images/Screenshot_2025-05-14_090636-removebg-preview (1).png" alt=""></span>
-                    </div>
-                    <a href="index.html"
-                        class="text-xl font-bold text-white hover:text-blue-400 transition-colors duration-300">Mansuri
-                        Asim</a>
+                    
+                    <span
+                        class="text-lg md:text-xl font-bold text-white">Mansuri
+                        Asim</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link">Home</a>
-                        <a href="about.html" class="nav-link">About</a>
-                        <a href="projects.html" class="nav-link">Projects</a>
-                        <a href="contact.html" class="nav-link">Contact</a>
-                        <a href="blog.html" class="nav-link active">Blog</a>
+                        <a href="index.html" class="nav-link"><i class="fas fa-home mr-1"></i>Home</a>
+                        <a href="about.html" class="nav-link"><i class="fas fa-user mr-1"></i>About</a>
+                        <a href="projects.html" class="nav-link"><i class="fas fa-code mr-1"></i>Projects</a>
+                        <a href="contact.html" class="nav-link"><i class="fas fa-envelope mr-1"></i>Contact</a>
+                        <a href="blog.html" class="nav-link active"><i class="fas fa-blog mr-1"></i>Blog</a>
                     </div>
                 </div>
             </div>
@@ -100,26 +112,26 @@
 
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-navigation glass-effect border-t border-gray-700 md:hidden">
-        <div class="grid grid-cols-5 gap-1 p-2">
-            <a href="index.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+        <div class="grid grid-cols-5 gap-1 px-4 py-3">
+            <a href="index.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-home text-xl mb-1"></i>
-                <span class="text-xs">Home</span>
+                <span class="text-xs font-medium">Home</span>
             </a>
-            <a href="about.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="about.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-user text-xl mb-1"></i>
-                <span class="text-xs">About</span>
+                <span class="text-xs font-medium">About</span>
             </a>
-            <a href="projects.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="projects.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-code text-xl mb-1"></i>
-                <span class="text-xs">Projects</span>
+                <span class="text-xs font-medium">Projects</span>
             </a>
-            <a href="contact.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="contact.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-envelope text-xl mb-1"></i>
-                <span class="text-xs">Contact</span>
+                <span class="text-xs font-medium">Contact</span>
             </a>
-            <a href="blog.html" class="mobile-nav-link active flex flex-col items-center justify-center p-2">
+            <a href="blog.html" class="mobile-nav-link active flex flex-col items-center justify-center">
                 <i class="fas fa-blog text-xl mb-1"></i>
-                <span class="text-xs">Blog</span>
+                <span class="text-xs font-medium">Blog</span>
             </a>
         </div>
     </nav>
@@ -127,11 +139,10 @@
     <!-- Main Content -->
     <main class="pt-20 min-h-screen bg-gradient-to-b from-gray-900 to-black">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Blog</h1>
-                <p class="text-xl text-gray-400">Thoughts, tutorials, and insights</p>
+            <div class="text-center mb-10 md:mb-14">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Blog</h1>
+                <p class="text-xl text-gray-400">Thoughts and Insights</p>
             </div>
-
 
 
             <!-- Blog Posts Grid -->
@@ -159,7 +170,10 @@
                     </div>
                     <h2 class="text-xl font-bold mb-3">Designing for Dark Mode</h2>
                     <p class="text-gray-400 mb-4">Best practices and considerations when implementing dark mode in your
-                        applications.</p>
+                        applications.
+                        <br>
+                        <br>
+                    </p>
                     <div class="flex items-center justify-between mt-auto">
                         <span class="text-gray-400 text-sm">March 10, 2024</span>
                         <a href="#" class="text-blue-400 hover:text-blue-300">Read More →</a>
@@ -169,11 +183,12 @@
                 <!-- Blog Post 3 -->
                 <article class="blog-card bg-gray-800/50 rounded-lg backdrop-blur-sm p-6">
                     <div class="flex items-center mb-4">
-                        <span class="bg-blue-600/20 text-blue-400 text-sm px-3 py-1 rounded-full">Career</span>
+                        <span class="bg-blue-600/20 text-blue-400 text-sm px-3 py-1 rounded-full">Productivity</span>
                         <span class="text-gray-400 text-sm ml-4">6 min read</span>
                     </div>
-                    <h2 class="text-xl font-bold mb-3">From Junior to Senior Developer</h2>
-                    <p class="text-gray-400 mb-4">Tips and strategies to advance your career as a software developer.
+                    <h2 class="text-xl font-bold mb-3">How I Use Notion to Plan My Coding Projects</h2>
+                    <p class="text-gray-400 mb-4">Sharing how I organize tasks, track bugs, and keep learning goals in one place using Notion.
+
                     </p>
                     <div class="flex items-center justify-between mt-auto">
                         <span class="text-gray-400 text-sm">March 5, 2024</span>
@@ -182,26 +197,15 @@
                 </article>
             </div>
 
-           
+            
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8">
+    <footer class="bg-gray-900 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <p class="text-gray-400">&copy; 2024 Mansuri Asim. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/asim-mansuri-80830931a/" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="https://x.com/asim_mansurii" class="text-gray-400 hover:text-white">
-                        <i class="fa-brands fa-x-twitter text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/asim.x7/" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                </div>
+            <div class="flex justify-center items-center">
+                <p class="text-gray-400 text-center">&copy; 2024 Mansuri Asim. All rights reserved.</p>
             </div>
         </div>
     </footer>

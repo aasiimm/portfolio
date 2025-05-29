@@ -4,9 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Mansuri Asim</title>
+    <title>Asim Mansuri</title>
+     <link rel="icon" type="image/png" href="Images/A.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "as2GTfsMv70bi5t9s",
+            });
+        })();
+    </script>
+
+
     <link href="css/output.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -20,6 +31,14 @@
             color: #3B82F6;
         }
 
+        .mobile-nav-link i {
+            transition: transform 0.2s ease;
+        }
+
+        .mobile-nav-link:active i {
+            transform: scale(0.9);
+        }
+
         @media (max-width: 768px) {
             .mobile-navigation {
                 position: fixed;
@@ -27,6 +46,11 @@
                 left: 0;
                 right: 0;
                 z-index: 50;
+                padding-bottom: env(safe-area-inset-bottom);
+                background: rgba(17, 25, 40, 0.95);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-top: 1px solid rgba(59, 130, 246, 0.2);
             }
         }
 
@@ -68,6 +92,22 @@
         .nav-link.active {
             color: white;
         }
+
+        /* Form input focus styles */
+        .form-input:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Loading spinner animation */
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
     </style>
 </head>
 
@@ -78,21 +118,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center space-x-4">
-                    <div class="w-16 h-16 rounded-full flex items-center justify-center">
-                        <span class="text-xl font-bold"><img
-                                src="Images/Screenshot_2025-05-14_090636-removebg-preview (1).png" alt=""></span>
-                    </div>
-                    <a href="index.html"
-                        class="text-xl font-bold text-white hover:text-blue-400 transition-colors duration-300">Mansuri
-                        Asim</a>
+
+                    <span class="text-lg md:text-xl font-bold text-white">Mansuri
+                        Asim</span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="index.html" class="nav-link">Home</a>
-                        <a href="about.html" class="nav-link">About</a>
-                        <a href="projects.html" class="nav-link">Projects</a>
-                        <a href="contact.html" class="nav-link active">Contact</a>
-                        <a href="blog.html" class="nav-link">Blog</a>
+                        <a href="index.html" class="nav-link"><i class="fas fa-home mr-1"></i>Home</a>
+                        <a href="about.html" class="nav-link"><i class="fas fa-user mr-1"></i>About</a>
+                        <a href="projects.html" class="nav-link"><i class="fas fa-code mr-1"></i>Projects</a>
+                        <a href="contact.html" class="nav-link active"><i class="fas fa-envelope mr-1"></i>Contact</a>
+                        <a href="blog.html" class="nav-link"><i class="fas fa-blog mr-1"></i>Blog</a>
                     </div>
                 </div>
             </div>
@@ -101,44 +137,45 @@
 
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-navigation glass-effect border-t border-gray-700 md:hidden">
-        <div class="grid grid-cols-5 gap-1 p-2">
-            <a href="index.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+        <div class="grid grid-cols-5 gap-1 px-4 py-3">
+            <a href="index.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-home text-xl mb-1"></i>
-                <span class="text-xs">Home</span>
+                <span class="text-xs font-medium">Home</span>
             </a>
-            <a href="about.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="about.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-user text-xl mb-1"></i>
-                <span class="text-xs">About</span>
+                <span class="text-xs font-medium">About</span>
             </a>
-            <a href="projects.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="projects.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-code text-xl mb-1"></i>
-                <span class="text-xs">Projects</span>
+                <span class="text-xs font-medium">Projects</span>
             </a>
-            <a href="contact.html" class="mobile-nav-link active flex flex-col items-center justify-center p-2">
+            <a href="contact.html" class="mobile-nav-link active flex flex-col items-center justify-center">
                 <i class="fas fa-envelope text-xl mb-1"></i>
-                <span class="text-xs">Contact</span>
+                <span class="text-xs font-medium">Contact</span>
             </a>
-            <a href="blog.html" class="mobile-nav-link flex flex-col items-center justify-center p-2">
+            <a href="blog.html" class="mobile-nav-link flex flex-col items-center justify-center">
                 <i class="fas fa-blog text-xl mb-1"></i>
-                <span class="text-xs">Blog</span>
+                <span class="text-xs font-medium">Blog</span>
             </a>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="pt-20 min-h-screen bg-gradient-to-b from-gray-900 to-black">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4">Get in Touch</h1>
-                <p class="text-xl text-gray-400">Let's discuss your next project</p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+            <div class="text-center mb-10 md:mb-14">
+                <h1 class="text-3xl md:text-6xl font-bold mb-4 gradient-text">Get in Touch</h1>
+                <p class="text-lg md:text-xl text-gray-400">Feel free to reach out to me</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
                 <!-- Left Column -->
-                <div class="space-y-8">
-                    <div class="contact-card bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm">
-                        <h2 class="text-2xl font-bold mb-6">Social Media</h2>
-                        <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-6 md:space-y-8">
+                    <div
+                        class="contact-card bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm border border-gray-700 shadow-lg">
+                        <h2 class="text-xl md:text-2xl font-bold mb-6 text-white">Social Media</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <a href="https://www.linkedin.com/in/asim-mansuri-80830931a/"
                                 class="flex items-center space-x-3 p-4 bg-gray-900/50 rounded-lg hover:bg-gray-700/50 transition duration-300">
                                 <i class="fab fa-linkedin text-xl"></i>
@@ -149,46 +186,45 @@
                                 <i class="fa-brands fa-x-twitter text-xl"></i>
                                 <span>Twitter</span>
                             </a>
-                            <a href="https://www.instagram.com/asim.x7/"
-                                class="flex items-center space-x-3 p-4 bg-gray-900/50 rounded-lg hover:bg-gray-700/50 transition duration-300">
-                                <i class="fab fa-instagram text-xl"></i>
-                                <span>Instagram</span>
-                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="bg-gray-800/50 p-8 rounded-lg backdrop-blur-sm">
-                    <h2 class="text-2xl font-bold mb-6">Send a Message</h2>
-                    <form id="contactForm" class="space-y-6">
+                <div class="bg-gray-800/50 p-6 md:p-8 rounded-lg backdrop-blur-sm border border-gray-700 shadow-lg">
+                    <h2 class="text-xl md:text-2xl font-bold mb-6">Send a Message</h2>
+                    <form id="contactForm" class="space-y-4 md:space-y-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
                             <input type="text" id="name" name="name" required
-                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                                class="form-input w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
                             <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                                class="form-input w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
                             <input type="text" id="subject" name="subject" required
-                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                                class="form-input w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
                         </div>
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
                             <textarea id="message" name="message" rows="6" required
-                                class="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500"></textarea>
+                                class="form-input w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-700 text-white focus:outline-none focus:border-blue-500"></textarea>
                         </div>
                         <button type="submit" id="submitBtn"
                             class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex items-center justify-center">
                             <span>Send Message</span>
                             <div id="loadingSpinner" class="hidden ml-2">
-                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                        stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor"
+                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                    </path>
                                 </svg>
                             </div>
                         </button>
@@ -199,92 +235,35 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8">
+    <footer class="bg-gray-900 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <p class="text-gray-400">&copy; 2024 Mansuri Asim. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://www.linkedin.com/in/asim-mansuri-80830931a/"
-                        class="text-gray-400 hover:text-white">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="https://x.com/asim_mansurii" class="text-gray-400 hover:text-white">
-                        <i class="fa-brands fa-x-twitter text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/asim.x7/" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                </div>
+            <div class="flex justify-center items-center">
+                <p class="text-gray-400 text-center">&copy; 2024 Mansuri Asim. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init("public_key"); // Replace this with your actual public key from EmailJS
-        })();
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const loadingSpinner = document.getElementById("loadingSpinner");
 
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Show loading spinner
-            const submitBtn = document.getElementById('submitBtn');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const submitText = submitBtn.querySelector('span');
-            
-            submitBtn.disabled = true;
-            loadingSpinner.classList.remove('hidden');
-            submitText.textContent = 'Sending...';
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
+            // Show spinner
+            loadingSpinner.classList.remove("hidden");
 
-            // Send email using EmailJS
-            emailjs.send(
-                'service_id', // Replace with your EmailJS service ID
-                'template_id', // Replace with your EmailJS template ID
-                {
-                    from_name: formData.name,
-                    from_email: formData.email,
-                    subject: formData.subject,
-                    message: formData.message,
-                }
-            ).then(
-                function(response) {
-                    // Success
-                    alert('Thank you! Your message has been sent successfully.');
-                    document.getElementById('contactForm').reset();
-                },
-                function(error) {
-                    // Error
-                    alert('Oops! Failed to send message. Please try again.');
-                    console.error('EmailJS error:', error);
-                }
-            ).finally(function() {
-                // Reset button state
-                submitBtn.disabled = false;
-                loadingSpinner.classList.add('hidden');
-                submitText.textContent = 'Send Message';
-            });
-        });
-
-        // Update mobile navigation active state
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-
-        mobileNavLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
+            emailjs.sendForm('service_1971ife', 'template_sjzycyu', form)
+                .then(function () {
+                    loadingSpinner.classList.add("hidden");
+             
+                    form.reset(); // Clear form
+                }, function (error) {
+                    loadingSpinner.classList.add("hidden");
+               
+                    console.error("EmailJS Error:", error);
+                });
         });
     </script>
 </body>
